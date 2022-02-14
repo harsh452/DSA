@@ -1,0 +1,52 @@
+// 1st aproach is using c++ stl functions; it will rearrange the given vector into next greater permutation.
+
+*-> void nextPermutation(vector<int>& nums) {
+        
+      next_permutation(nums.begin(),nums.end());
+      
+      for(int i=0;i<nums.size();i++){
+          cout<<nums[i]<<",";
+      }
+        
+ }
+ 
+ *-> in case of arrays- 
+    just use next_permutation(arr,arr+size0farray);
+   
+   
+   
+*-> now the coding aproach of this question for tech interview round;
+ let us suppose we have  13542
+ 1- linearly traverse the array from the back ;
+ 3- if this condition arr[k]<arr[k+1]   gets satisfied then break from the loop ;
+ 4- check if the loops breaked or ended after whole iteration . if it ended after whole iteration then simply reverse the vector its ur answer , other wise follow next steps.
+ 5- again start traversing the array from back.
+ 6- if this condition arr[l]>arr[k]   gets satisfied then break from the loop ;
+ 6-swap (nums[l],nums[k]);
+ 7-reverse the array from (idx1+1 -> last index);
+ 
+* code->
+         void nextPermutation(vector<int>& nums) {
+        
+        int k,l;
+        for(k = nums.size()-2;k>=0;k--){
+            if(nums[k]<nums[k+1]){
+                break;
+            }
+        }
+        if(k<0){
+            reverse(nums.begin(),nums.end());
+        }else{
+            for(l=nums.size()-1;l>k;l--){
+                if(nums[l]>nums[k])break;
+            }
+            swap(nums[l],nums[k]);
+            reverse(nums.begin()+k+1,nums.end());
+        }
+        
+        
+        for(int i=0;i<nums.size();i++){
+            cout<<nums[i]<<",";
+        }
+    }
+ 
