@@ -23,7 +23,7 @@
  5- again start traversing the array from back.
  6- if this condition arr[l]>arr[k]   gets satisfied then break from the loop ;
  6-swap (nums[l],nums[k]);
- 7-reverse the array from (idx1+1 -> last index);
+ 7-reverse the array from (k+1 -> last index);
  
 * code->
          void nextPermutation(vector<int>& nums) {
