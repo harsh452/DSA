@@ -1,0 +1,14 @@
+So in this question we first need to calculate the transpose of the given matrix because after doing transpose all the rows will become columns.
+
+*->  Transpose of the matrix 
+
+for(int i=0;i<n;i++){
+ for(int j=0;j<i;j++){
+    swap(arr[i][j],arr[j][i]);
+  }
+}
+
+after calculating transpose all we need to do is just reverse every row of matrix.
+ for(int i=0;i<n;i++){
+    reverse(arr[i].begin(),arr[i].end());
+ }
