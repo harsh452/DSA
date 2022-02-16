@@ -1,0 +1,43 @@
+IN merge sort we use divide and conquerer algorithm 
+
+first we devide the array till only single elements are left in the array.
+then after we merge the array the two sorted array then areturn the sorted array.
+
+*-> deviding algo
+void devide(vector<int> & r,int s,int e ){
+if(s>=e){
+    return;
+}    
+
+ int mid = s + (e-s)/2;
+ devide(r,s,mid);
+ devide(r,mid+1,e);
+ merge(r,s,e,mid);
+
+}
+*->merging algo
+void merge(vector<int> &r ,int s,int e,int mid){
+    int merged[e-s+1];
+    int id1 = s;
+    int id2  =mid+1;
+    int x = 0;
+    while(id1<=mid && id2<=e){
+        if(r[id1]<r[id2]){
+            merged[x++] = r[id1++];
+        }else{
+            merged[x++]=r[id2++];
+        }
+    }
+    
+    while(id1<=mid){
+        merged[x++]=r[id1++];
+    }
+      while(id2<=e){
+        merged[x++]=r[id2++];
+    }
+    
+    int size = sizeof(merged)/sizeof(merged[0]);
+    for(int i=0,j=s;i<size;i++,j++){
+        r[j] = merged[i];
+    }
+}
