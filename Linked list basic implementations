@@ -1,0 +1,54 @@
+we will see how to define a node class and basic methods of a linked list
+*-> defining node class
+
+class node{
+public:
+    int data;
+    node* next;
+    
+    node(int val){
+        data = val;
+        next =NULL;
+    }
+    
+};
+
+
+*-> inserting at the end;
+
+void insertatEnd(node* &head,int val){
+    node* n = new node(val);
+    if(head ==NULL){
+        head = n;
+        return;
+    }
+    
+    node* temp  = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = n;
+    
+    
+}
+
+*-> inserting at the head;
+
+void insertatHead(node* &head,int val){
+    node* n = new node(val);
+    
+    n->next = head;
+    head=n;
+}
+*-> searchinfg in linked list
+
+bool search(node* head,int key){
+    while(head!= NULL){
+        if(head->data==key){
+            return true;
+        }
+        
+        head = head->next;
+    }
+    return false;
+}
