@@ -69,3 +69,41 @@ void delete1(node*& head, int val){
     temp->next = temp->next->next;
     delete toDelete;
 }
+
+
+*-> reverse a linked list
+
+node* reverse(node* &head){
+    if(head->next==NULL){
+        return head;
+    }
+    
+    node* currrent = head;
+    node*  prev = NULL;
+    while(currrent!=NULL){
+        node* temp = currrent->next;
+        currrent->next = prev;
+        prev = currrent;
+        currrent =temp;
+    }
+    
+    return prev;// prev is the new head;
+    
+    
+}
+
+*-> reverse using recursion
+
+node* reverse(node* &head){
+   
+   if(head==NULL ||head->next == NULL){
+       return head;
+   }
+   node * newhead = reverse(head->next);
+   head->next->next = head;
+   head->next = NULL;
+   
+   return newhead;
+    
+    
+}
