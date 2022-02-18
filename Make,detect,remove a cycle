@@ -26,7 +26,7 @@ bool detectCycle(node* head){
         slow = slow->next;
         fast = fast->next->next;
         if(fast == slow){
-            return true;
+            return true;// return fast or slow if u have to remove this cycle
             
         }
     }
