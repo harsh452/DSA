@@ -1,0 +1,23 @@
+we will use combination of itreation and recursion methods of recursion to solve this problem.
+
+node* reverse(node* &head,int key){
+ 
+    
+    node* prev = NULL;
+    node* curr =head;
+    int temp = key;
+    node* temp1;
+    while(curr != NULL && key != 0){
+         temp1 = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = temp1;
+        --key;
+        
+    }
+    if(curr!=NULL){
+        head->next = reverse(curr,temp);
+    }
+    return prev;
+    
+}
