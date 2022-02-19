@@ -1,0 +1,64 @@
+*-> defining nodes of doubly linked lsit
+
+class node{
+public:
+    int data;
+    node* next;
+    node* prev;
+    
+    node(int val){
+        data = val;
+        next =NULL;
+        prev = NULL;
+    }
+    
+};
+
+*->insert at end
+void insertatEnd(node* &head,int val){
+    node* n = new node(val);
+    if(head ==NULL){
+        head = n;
+        return;
+    }
+    
+    node* temp  = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = n;
+    n->prev = temp;
+}
+*->insert at head
+
+void insertatHead(node* &head, int val){
+    node* n = new node(val);
+    n->next = head;
+    head->prev = n;
+    head =n;
+}
+*-> delete  //this handles the case when we have to also delete the last node.
+
+void delete1(node*& head, int val){
+    if(head->data==val){
+        node* toDelete = head;
+        head = head->next;
+        head->prev = NULL;
+        delete toDelete;
+        return;
+    }
+    
+    node* temp = head;
+    while(temp->data != val && temp->next!= NULL){
+        temp = temp->next; 
+    }
+        node* toDelete = temp;
+    temp->prev->next = temp->next;
+
+    if(temp->next!=NULL){
+    temp->next->prev = temp->prev;
+    }
+        delete toDelete;
+
+
+}
