@@ -1,0 +1,16 @@
+void evnafterodd(node* &head){
+    
+    node* odd = head;
+    node* evnStart = head->next;
+    node* evn = head->next;
+    
+    while(odd->next!=NULL && evn->next!=NULL){
+        odd->next = evn->next;
+        odd = odd->next;
+        evn->next = odd->next;
+        evn = evn->next;
+    }
+    
+   odd->next=evnStart;
+
+}
