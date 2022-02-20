@@ -1,0 +1,37 @@
+Similar concept as merging two sorted arays
+
+node* merge(node* &head1,node* &head2){
+    
+    node* dummy =  new node(0);
+    node* ptr = dummy;
+    node* h1 = head1;
+    node* h2 = head2;
+    while(h1!=NULL && h2!=NULL){
+      
+      if(h1->data < h2->data){
+          dummy->next = h1;
+          h1 = h1->next;
+          dummy = dummy->next;
+      }else{
+          dummy->next = h2;
+          h2 = h2->next;
+         dummy = dummy->next;
+      }
+    }
+    
+    while(h1!=NULL){
+        dummy->next = h1;
+        h1=h1->next;
+        dummy = dummy->next;
+
+    }
+     while(h2!=NULL){
+        dummy->next = h2;
+        h2=h2->next;
+        dummy = dummy->next;
+    }
+    
+    return ptr->next;
+    
+    
+}
