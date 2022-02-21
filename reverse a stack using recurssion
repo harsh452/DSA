@@ -1,0 +1,28 @@
+
+void insertatEnd(stack<int> &st,int ele){
+    if(st.empty()){
+        st.push(ele);
+        return;
+    }
+    int newele = st.top();
+    st.pop();
+    insertatEnd(st,ele);
+    st.push(newele);
+    
+}  
+
+ 
+void  reverseString(stack<int> &st){
+  
+  if(st.empty()){
+      return;
+  }
+    int temp = st.top();
+    st.pop();
+    reverseString(st);
+    insertatEnd(st,temp);
+    
+    
+    
+}
+// refer to geeks for geeks explanation for this question;
