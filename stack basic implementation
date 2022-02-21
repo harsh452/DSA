@@ -1,0 +1,47 @@
+
+Stack is basically an array which is only accessible from 1 side;
+memory of array in this prgrm is dynamically allocated.
+#define n 100 
+class stacks{
+  int *arr;
+  int top;
+  
+  public:
+    stacks(){
+        arr = new int[n];
+        top = -1;
+    }
+    
+    void push(int val){
+        if(top==n-1){
+            cout<<"Stack is full";
+            return;
+        }
+        
+        top++;
+        arr[top] = val;
+    }
+    
+    int pop(){
+        if(top==-1){
+            cout<<"no elements to pop";
+            return -1;
+        }
+        
+        top--;
+    }
+    
+    
+    int Top(){
+        if(top==-1){
+            cout<<"stack is empty";
+            return -1;
+        }
+        
+        return arr[top];
+    }
+    
+    bool empty(){
+        return top==-1;
+    }
+};
