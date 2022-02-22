@@ -54,4 +54,5 @@ string answer(string s){
 ******vvip****/
 for infex to prefix
 everything will be same except we will reverse the given string and reverse the procedures for ( and ) brackets.
+and then reverse the answer string and rreturn;
 
