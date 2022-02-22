@@ -1,0 +1,21 @@
+a+b*d =  abd*+;
+here priority of * is the highest therefore we solve bd 1st and put its operator backwards , then bd* becomes a operand,
+therefore we then solve a+ bd* so it becomes abd*+;
+
+(a+b)*c = ab+c*;
+(x*y)-(z/p) =  xy*zp/-
+
+now lets convert infix to postfix;
+a+b*d =  +a*bd;
+(a+b)*c = *+abc;
+(x*y)-(z/p) =-*xy/zp;
+
+
+**** vvvip******\
+if u wanna convert a numeric character like '9' to int 9 then
+'9' - '0' = 9;
+Because ascii value of '0' = 48;
+and ascii value of '9' = 57;
+so 57-48 = 9;
+
+
