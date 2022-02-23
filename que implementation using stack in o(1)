@@ -1,0 +1,27 @@
+
+class que{
+  stack<int> s;
+
+  public:
+
+  void enq(int x){
+      s.push(x);
+  }
+  int deq(){
+      if(s.empty()){
+          return -1;
+      }
+      
+      int x= s.top();
+      s.pop();
+      if(s.empty()){
+          return x;
+      }
+      
+      int item = deq();
+      s.push(x);
+      return item;
+      
+  }
+ 
+};
