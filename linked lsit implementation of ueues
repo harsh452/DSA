@@ -1,0 +1,49 @@
+
+class node{
+  public:
+  int data;
+  node* next;
+  node(int val){
+      data = val;
+      next = NULL;
+  }
+};
+
+class queues{
+  node* front;
+  node* back;
+  public:
+ 
+  queues(){
+      front = NULL;
+      back =NULL;
+  }
+  void enq(int val){
+      node* n =new node(val);
+      if(front==NULL){
+          back =n;
+          front = n;
+          return;
+      }
+      back->next =n;
+      back = back->next;
+  }
+  void deq(){
+      if(front==NULL){
+          cout<<"queue is empty";
+          return;
+      }
+      node *toDel = front;
+      front= front->next;
+      delete toDel;
+  }
+  int peek(){
+      if(front==NULL){
+          cout<<"queue is empty";
+          return -1;
+      }
+      return front->data;
+  }
+  
+  
+};
