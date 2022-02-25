@@ -1,1 +1,22 @@
+maximum nodes at any level L  in binary tree => 2^L'
+max no. of nodes in tree of height 2^h - 1;
+A binary tree with L leaves nodes has atleast log(N+1) + 1 no. of levels;
 
+struct node{
+    int data;
+    struct node* left;
+    struct node* right;
+    node(int val){
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+}
+
+int main() {
+
+    struct node* root = new node(1);
+    root->left = new node(2);
+    root->right =  new node(3);
+    return 0;
+}
