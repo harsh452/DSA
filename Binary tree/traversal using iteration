@@ -1,0 +1,69 @@
+    vector<int> inorderTraversal(TreeNode* root) {  // left root right
+        vector<int> value;
+        stack<TreeNode*> st;
+        TreeNode* node = root;
+        while(true){
+            if(node!=NULL){
+                st.push(node);
+                node = node->left;
+            }else{
+                if(st.empty())break;
+                node = st.top();
+                    st.pop();
+                value.push_back(node->val);
+                node = node->right;
+            }
+        }
+        return value;
+
+    }
+    
+        vector<int> preorderTraversal(TreeNode* root) {  /// root left right
+        stack<TreeNode*>st;
+        vector<int> value;
+        TreeNode* node;
+        st.push(root);
+        
+        if(root==NULL)return value;
+        while(true){
+            node = st.top();
+            value.push_back(node->val);
+            st.pop();
+            if(node->right!=NULL){
+                st.push(node->right);
+            }
+            if(node->left!=NULL){
+                st.push(node->left);
+            }
+            if(st.empty())break;
+        }
+        return value;
+        
+    }
+    
+    
+     vector<int> postorderTraversal(TreeNode* root) {   /// left right root
+        stack<TreeNode*>st1;
+        stack<TreeNode*> st2;
+        vector<int> value;
+        
+        TreeNode* node;
+        st1.push(root);
+        if(root==NULL)return value;
+        while(true){
+            node = st1.top();
+            st1.pop();
+            st2.push(node);
+            if(st2.top()->left!=NULL)st1.push(st2.top()->left);
+            if(st2.top()->right!=NULL)st1.push(st2.top()->right);
+            
+            if(st1.empty())break;
+        }
+        
+        while(!st2.empty()){
+            value.push_back(st2.top()->val);
+            st2.pop();
+        }
+        
+        return value;
+    }
