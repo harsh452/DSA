@@ -1,0 +1,42 @@
+in this q we make a vector and store the val of the level which is not visited before.
+
+
+//// Left view
+void recur(Node *root , int level, vector<int> &ans){
+    if(root==NULL){
+        return;
+    }
+    if(ans.size()==level){
+        ans.push_back(root->data);
+    }
+    recur(root->left,level+1,ans);
+    recur(root->right,level+1,ans);
+}
+
+vector<int> leftView(Node *root)
+{
+   vector<int> ans;
+   recur(root,0,ans);
+   return ans;
+   
+}
+
+//// right view
+void recur(Node *root , int level, vector<int> &ans){
+    if(root==NULL){
+        return;
+    }
+    if(ans.size()==level){
+        ans.push_back(root->data);
+    }
+    recur(root->right,level+1,ans);
+    recur(root->left,level+1,ans);
+}
+
+vector<int> leftView(Node *root)
+{
+   vector<int> ans;
+   recur(root,0,ans);
+   return ans;
+   
+}
