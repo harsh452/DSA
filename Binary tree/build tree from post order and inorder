@@ -1,0 +1,19 @@
+int search(int inorder[],int curr,int s,int e){
+    for(int i = s;i<e;i++){
+        if(inorder[i] == curr)return i;
+    }
+}
+
+node* buildtree(int postorder[],int inorder[],int s,int e){
+ static int idx =4 ;
+ if(s>e)return NULL;
+ int curr = postorder[idx];
+ idx--;
+ node* Node = new node(curr);
+ int pos =search(inorder,curr,s,e);
+ 
+ if(s==e)return Node;
+ Node->right = buildtree(postorder,inorder,pos+1,e);
+ Node->left = buildtree( postorder,inorder,s,pos-1);
+ return Node;
+}
