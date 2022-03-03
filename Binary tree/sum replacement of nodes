@@ -1,0 +1,10 @@
+void sumReplacement( node* root){
+    if(root->left==NULL && root->right==NULL){
+        return ;
+    }
+    
+    sum(root->left);
+    sum(root->right);
+    
+    root->data = root->data+root->left->data + root->right->data;
+}
