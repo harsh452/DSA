@@ -1,0 +1,34 @@
+///// inorder traversal of binary search tree always gives us sorted value;
+
+struct node{
+    int data;
+    node* left,*right;
+    node(int val){
+        data = val;
+        right =NULL;
+        left =NULL;
+    }
+};
+node* insertNode(node* root, int val){
+    if(root==NULL)return new node(val);
+    
+    if(val<root->data){
+        root->left = insertNode(root->left , val);
+    }else{
+         root->right = insertNode(root->right,val);
+    }
+    return root;
+}
+
+int main()
+{
+ node* root = NULL;
+ root =insertNode(root,5);
+ insertNode(root,1);
+ insertNode(root,3);
+ insertNode(root,4);
+ insertNode(root,2);
+ insertNode(root,7);
+inorder(root);
+   return 0;
+}
