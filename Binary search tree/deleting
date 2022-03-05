@@ -1,0 +1,32 @@
+
+node* inorderSucc(node* root){
+   node*  curr = root;
+    while(curr && curr->left!= NULL){
+        curr = curr->left;
+    }
+    return curr;
+}
+
+node* deleteBst(node* root, int key){
+    
+    if(root->data > key){
+        root->left  = deleteBst(root->left, key);
+    }else if(root->data < key){
+        root->right = deleteBst(root->right ,key);
+    } else{
+        if(root->left==NULL) {
+            node* temp = root->right;
+            free(root);
+            return temp;
+        }else if (root->right == NULL){
+            node* temp = root->left;
+            free(root);
+            return temp;
+        }else{
+            node* temp = inorderSucc(root->right);
+            root->data = temp->data;
+            root->right=  deleteBst(root->right,temp->data);
+        }
+    }
+    return root;
+}
