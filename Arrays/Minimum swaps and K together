@@ -1,0 +1,18 @@
+ int minSwap(int arr[], int n, int k) {
+        
+        int start =0;
+        int end =n-1;
+        int count =0;
+        
+        while(start<end){
+            if(arr[start]<=k && arr[end]<=k){
+                start++;
+            }else if(arr[start]>k && arr[end]<=k){
+                swap(arr[start++],arr[end--]);
+                count++;
+            }else{
+                end--;
+            }
+        }
+        return count;
+    }
