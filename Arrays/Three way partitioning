@@ -1,0 +1,16 @@
+ void threeWayPartition(vector<int>& array,int a, int b)
+    {
+      int s =0;
+      int e = array.size()-1;
+      sort(array.begin() ,array.end());
+      
+      while(e>s){
+          if(array[s]<=a && array[e]>=b){
+              s++;e--;
+          }else if(array[s]>b && array[e]<a){
+              swap(array[s++],array[e--]);
+          }else{
+              s++;
+          }
+      }
+    }
