@@ -8,3 +8,12 @@ for(int i=2;i<=sqrt(n);i++){
         }
     }
     cout<<"prime";
+    
+    or 
+    we can say
+    int c = 2;
+    
+    while(c*c<=n){
+     if(n%c==0)return false;
+    }
+    
