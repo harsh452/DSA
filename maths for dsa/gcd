@@ -18,3 +18,7 @@ int gcd(int a , int b){
 	}
 	return b;
 }
+
+/////  the relation between lcm and gcd is //////
+
+lcm(a,b) * gcd(a,b) = a*b;
