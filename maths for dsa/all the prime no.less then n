@@ -1,4 +1,7 @@
-   int countPrimes(int n) {
+  //////  SIEVE OF ERATHONAOS //////
+  
+  
+  int countPrimes(int n) {
         vector<bool> primes(n+1,true);
         int ans=0;
         primes[0]=primes[1]=false;
